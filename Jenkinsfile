@@ -68,12 +68,12 @@ node {
                     sinCambios++
                 } else {
                     def r = gql(config.wikiUrl, WIKI_TOKEN,
-                        '''mutation($id:Int!,$c:String!,$t:String!,$d:String!,$pub:Boolean!){
+                        '''mutation($id:Int!,$c:String!,$t:String!,$d:String!,$tags:[String]!,$pub:Boolean!){
                              pages { update(id:$id, content:$c, title:$t, description:$d,
-                                            isPublished:$pub) {
+                                            tags:$tags, isPublished:$pub) {
                                responseResult { succeeded message } } } }''',
                         [id: pagina.id, c: doc.contenido, t: doc.titulo,
-                         d: doc.descripcion, pub: doc.publicar])
+                         d: doc.descripcion, tags: [], pub: doc.publicar])
                     comprobar(r, 'update')
                     echo "  ~ actualizar ${ruta}"
                     actualizadas++
