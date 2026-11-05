@@ -10,7 +10,7 @@ node {
     // Configuración
     def config = [
         wikiUrl:      'https://pwikijs.aws.umh.es',
-        credentialId: 'wikijs-token',
+        credentialId: 'wikijs-tokengrovy',
         docsDir:      'docs',
         basePath:     'APLICACIONES/prueba-jenkins',
         locale:       'es'
