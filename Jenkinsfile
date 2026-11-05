@@ -49,13 +49,6 @@ node {
                     [p: ruta, l: config.locale])
                 def pagina = actual?.data?.pages?.singleByPath
 
-                // DEBUG: mostrar qué se compara
-                echo "  DEBUG ${ruta}:"
-                echo "    titulo wiki: '${pagina?.title}' vs repo: '${doc.titulo}'"
-                echo "    descripcion wiki: '${pagina?.description}' vs repo: '${doc.descripcion}'"
-                echo "    isPublished wiki: ${pagina?.isPublished} vs repo: ${doc.publicar}"
-                echo "    contenido wiki (${pagina?.content?.length() ?: 0} chars) vs repo (${doc.contenido?.length() ?: 0} chars)"
-                
                 if (!pagina) {
                     def r = gql(config.wikiUrl, WIKI_TOKEN,
                         '''mutation($c:String!,$d:String!,$p:String!,$t:String!,$l:String!,$pub:Boolean!){
