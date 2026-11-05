@@ -1,0 +1,4 @@
+base_path: APLICACIONES/prueba-jenkins
+docs_dir: docs
+locale: es
+locales: [es]
